@@ -27,8 +27,5 @@ class TestDNS(unittest.TestCase):
             f"Expected IP ({expected_ip_address}) not found for hostname {current_hostname}"
           )
 
-
-
-# This allows the test to be run from the command line
 if __name__ == '__main__':
   unittest.main()
