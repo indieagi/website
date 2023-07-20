@@ -38,7 +38,7 @@ if __name__ == '__main__':
 </file>
 
 <error>
-(dev_venv) toby@dt:~/src/main-website/tests$ ./run_tests.sh 
+(venv) toby@dt:~/src/main-website/tests$ ./run_tests.sh 
 E
 ======================================================================
 ERROR: test_hostname_to_ip_resolution (test_dns.TestDNS.test_hostname_to_ip_resolution)

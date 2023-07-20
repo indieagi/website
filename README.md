@@ -18,7 +18,7 @@ chromedriver --port=4444
 ```
 ## Python Setup
 - If you haven't aleady, create your venv `create_venv.sh`
-- Activate your venv `source dev_venv/bin/activate`
+- Activate your venv `source venv/bin/activate`
 - Install Python requirements `pip install -r requirements.txt`
 # How to run
 - Start the server for development `python main.py`
