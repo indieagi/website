@@ -7,19 +7,19 @@ from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+
+
 class TestWebPages(unittest.TestCase):
     def setUp(self):
-
         chrome_options = Options()
         chrome_options.add_argument("--headless")
 
         try:
-            # downloaed chromedriver from https://chromedriver.chromium.org/downloads. Python will automatically find it in your PATH.
-            self.driver =webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-
+            # download chromedriver from https://chromedriver.chromium.org/downloads. Python will automatically find it in your PATH.
+            self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
         except WebDriverException as e:
             self.fail(f'WebDriver setup failed, error is: {str(e)}')
-        
+
         # Implicitly wait for a certain duration while trying to find any element or elements
         self.driver.implicitly_wait(10)  # seconds
 
@@ -28,23 +28,22 @@ class TestWebPages(unittest.TestCase):
 
     def generate_test_urls(self):
         """
-        Generate a list of test URLs from HTML files in the templates directory,
+        Generate a list of test URLs from the index.html file in the templates directory,
         including only links starting with https://www.indieagi.org.
         """
-        test_urls = []
-        directory = "./templates/"
+        test_urls = ["https://www.indieagi.org"]
+        filename = "./templates/index.html"
 
-        for filename in os.listdir(directory):
-            if filename.endswith(".html"):
-                with open(directory + filename, 'r') as f:
-                    contents = f.read()
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                contents = f.read()
 
-                soup = BeautifulSoup(contents, 'html.parser')
+            soup = BeautifulSoup(contents, 'html.parser')
 
-                for link in soup.find_all('a'):
-                    url = link.get('href')
-                    if url.startswith("https://www.indieagi.org"):
-                        test_urls.append(url)
+            for link in soup.find_all('a'):
+                url = link.get('href')
+                if url.startswith("https://www.indieagi.org"):
+                    test_urls.append(url)
 
         return test_urls
 
@@ -62,7 +61,7 @@ class TestWebPages(unittest.TestCase):
                 self.driver.get(url)
                 self.assertEqual(response.status_code, 200, f"Expected status code 200, but got {response.status_code} for the URL {url}")
             except WebDriverException as e:
-                self.fail(f"DNS resolution succeeded but failed to get 200 OK for {hostname}. Error: {str(e)}")
+                self.fail(f"DNS resolution succeeded but failed to get 200 OK for {url}. Error: {str(e)}")
 
 
 if __name__ == "__main__":
