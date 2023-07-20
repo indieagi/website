@@ -154,9 +154,7 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 dev_venv/share/jupyter/kernels/python3/kernel.json
-.gitignore
 dev_venv/share/jupyter/kernels/python3/logo-svg.svg
 dev_venv/share/jupyter/kernels/python3/logo-64x64.png
-.gitignore
 dev_venv/share/man/man1/ipython.1
 dev_venv/share/jupyter/kernels/python3/logo-32x32.png
