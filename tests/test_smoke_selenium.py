@@ -7,7 +7,6 @@ from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-
 class TestWebPages(unittest.TestCase):
     def setUp(self):
 
@@ -57,13 +56,13 @@ class TestWebPages(unittest.TestCase):
                 response = requests.get(url)
             except requests.exceptions.RequestException as e:
                 print(f'DNS resolution failed for {url}, error is: {str(e)}')
-                continue
+                self.fail(f"DNS resolution failed for {url}")
 
             try:
                 self.driver.get(url)
                 self.assertEqual(response.status_code, 200, f"Expected status code 200, but got {response.status_code} for the URL {url}")
             except WebDriverException as e:
-                print(f'Page load failed for {url}, error is: {str(e)}')
+                self.fail(f"DNS resolution succeeded but failed to get 200 OK for {hostname}. Error: {str(e)}")
 
 
 if __name__ == "__main__":
