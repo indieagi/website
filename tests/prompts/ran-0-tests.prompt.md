@@ -46,7 +46,7 @@ if __name__ == '__main__':
 </expected_output>
 
 <actual_output>
-(dev_venv) toby@dt:~/src/main-website/tests$ ./run_tests.sh 
+(venv) toby@dt:~/src/main-website/tests$ ./run_tests.sh 
 
 ----------------------------------------------------------------------
 Ran 0 tests in 0.000s
