@@ -1,6 +1,7 @@
 import os
 import unittest
 import requests
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
@@ -26,12 +27,24 @@ class TestWebPages(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
+    def generate_test_urls(self):
+        test_urls = []
+        directory = "./templates/"
+        
+        for filename in os.listdir(directory):
+            if filename.endswith(".html"):
+                with open(directory + filename, 'r') as f:
+                    contents = f.read()
+
+                soup = BeautifulSoup(contents, 'html.parser')
+
+                for link in soup.find_all('a'):
+                    test_urls.append(link.get('href'))
+        
+        return test_urls
+
     def test_webpage_load(self):
-        test_urls = [
-            'https://indieagi.org/events/intro-to-full-stack-llm',
-            'https://indieagi.org',
-            'https://indieagi.org/events/weekly-lightning-talk-meetup'
-        ]
+        test_urls = self.generate_test_urls()
 
         for url in test_urls:
             try:
