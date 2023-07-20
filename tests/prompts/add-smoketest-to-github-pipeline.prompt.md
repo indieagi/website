@@ -1,5 +1,15 @@
 I have the following smoke test in my github repo. How can I configure it to run as a check automatically for any PR on this repo?
 
+Abide by the following contraints:
+- runs on Ubuntu latest
+- installs selenium chrome webdriver
+- installs any packages in requirements.txt
+- runs on python 3.11
+
+Include the following information in the instructions:
+- the workflow yaml file
+- any directories or files that need to be created
+
 <smoke-test>
 import subprocess
 from selenium import webdriver
