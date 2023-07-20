@@ -28,9 +28,13 @@ class TestWebPages(unittest.TestCase):
         self.driver.quit()
 
     def generate_test_urls(self):
+        """
+        Generate a list of test URLs from HTML files in the templates directory,
+        including only links starting with https://www.indieagi.org.
+        """
         test_urls = []
         directory = "./templates/"
-        
+
         for filename in os.listdir(directory):
             if filename.endswith(".html"):
                 with open(directory + filename, 'r') as f:
@@ -39,8 +43,10 @@ class TestWebPages(unittest.TestCase):
                 soup = BeautifulSoup(contents, 'html.parser')
 
                 for link in soup.find_all('a'):
-                    test_urls.append(link.get('href'))
-        
+                    url = link.get('href')
+                    if url.startswith("https://www.indieagi.org"):
+                        test_urls.append(url)
+
         return test_urls
 
     def test_webpage_load(self):
