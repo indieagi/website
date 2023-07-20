@@ -4,6 +4,8 @@ import requests
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
 class TestWebPages(unittest.TestCase):
     def setUp(self):
@@ -13,7 +15,8 @@ class TestWebPages(unittest.TestCase):
 
         try:
             # downloaed chromedriver from https://chromedriver.chromium.org/downloads. Python will automatically find it in your PATH.
-            self.driver = webdriver.Chrome(options=chrome_options)
+            self.driver =webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+
         except WebDriverException as e:
             self.fail(f'WebDriver setup failed, error is: {str(e)}')
         
