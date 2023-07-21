@@ -24,7 +24,7 @@ jobs:
       
     - name: Install Selenium WebDriver
       run: |
-        wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+        wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE_115.0.5790/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/bin/chromedriver
         sudo chown root:root /usr/bin/chromedriver
