@@ -1,4 +1,4 @@
-name: Hello world workflow
+name: "Tech Debt: Run Pre-Merge Automated Tests Here" 
 
 on:
   pull_request:
