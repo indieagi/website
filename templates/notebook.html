@@ -3,16 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <title>Workshop Notebook</title>
+        <!-- Include Thebe JavaScript Library -->
+        <script src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     </head>
     <body>
         <header>
             <h1>Workshop Notebook</h1>
         </header>
-        
+
+        <!-- Configure Thebe -->
+        <script type="text/x-thebe-config">
+        {
+            "requestKernel": true,
+            "binderOptions": {
+                "repo": "indieagi/LLM_workshop_1_notebooks",
+                "ref": "master",
+                "binderUrl": "https://mybinder.org",
+                "repoProvider": "github"
+            }
+        }
+        </script>
+
         <main>
-            <iframe src="https://mybinder.org/v2/gh/indieagi/LLM_workshop_1_notebooks/master?labpath=notebook.ipynb" 
-                    style="width: 100%; height: 100vh; border: none;">
-            </iframe>
+            <!-- Activation Button -->
+            <button id="activateButton" style="width: 120px; height: 40px; font-size: 1.5em;">
+                Activate
+            </button>
+            <script>
+                var bootstrapThebe = function() {
+                    thebelab.bootstrap();
+                }
+                document.querySelector("#activateButton").addEventListener('click', bootstrapThebe)
+            </script>
+            
+            <!-- Your Code Cells -->
+            <pre data-executable="true" data-language="python">
+                print("Hello, World!")
+            </pre>
         </main>
     </body>
 </html>
