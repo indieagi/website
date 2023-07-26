@@ -1,44 +1,25 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Workshop Notebook</title>
-        <!-- Include Thebe JavaScript Library -->
-        <script src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    </head>
-    <body>
-        <header>
-            <h1>Workshop Notebook</h1>
-        </header>
-
-        <!-- Configure Thebe -->
-        <script type="text/x-thebe-config">
+<head>
+    <!-- Configure and load Thebe -->
+    <script type="text/x-thebe-config">
         {
+            requestKernel: true,
+            mountActivateWidget: true,
+            mountStatusWidget: true,
             binderOptions: {
-                repo: "minrk/ligo-binder",
-                ref: "master",
-                binderUrl: "https://mybinder.org",
-                repoProvider: "github",
-              }
+                repo: "indieagi/LLM_workshop_1_notebooks",
+            }
         }
-        </script>
+    </script>
 
-        <main>
-            <!-- Activation Button -->
-            <button id="activateButton" style="width: 120px; height: 40px; font-size: 1.5em;">
-                Activate
-            </button>
-            <script>
-                var bootstrapThebe = function() {
-                    thebelab.bootstrap();
-                }
-                document.querySelector("#activateButton").addEventListener('click', bootstrapThebe)
-            </script>
-            
-            <!-- Your Code Cells -->
-            <pre data-executable="true" data-language="python">
-                print("Hello, World!")
-            </pre>
-        </main>
-    </body>
+    <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+</head>
+<body>
+    <!-- Thebe UI widgets -->
+    <div class="thebe-activate"></div>
+    <div class="thebe-status"></div>
+
+    <!-- Code cells -->
+    <pre data-executable="true" data-language="python">print("Hello world!")</pre>
+</body>
 </html>
