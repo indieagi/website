@@ -11,6 +11,9 @@ def index():
 def intro_to_full_stack_llm():
     return render_template('intro_to_full_stack_llm.html')
 
+@app.route('/events/intro-to-full-stack-llm/notebook')
+def notebook():
+    return render_template('notebook.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
