@@ -13,11 +13,11 @@ def events():
 
 @app.route('/events/jug-island-picnic.html')
 def intro_to_full_stack_llm():
-    return render_template('intro_to_full_stack_llm.html')
+    return render_template('events/intro_to_full_stack_llm.html')
 
 @app.route('/events/intro-to-full-stack-llm')
 def intro_to_full_stack_llm():
-    return render_template('intro_to_full_stack_llm.html')
+    return render_template('events/intro_to_full_stack_llm.html')
 
 
 if __name__ == '__main__':
