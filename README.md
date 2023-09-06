@@ -69,7 +69,7 @@ Congrats!
 - Activate your venv `source venv/bin/activate`
 - Install Python requirements `pip install -r requirements.txt`
 ## Run Server
-- Start the server for development `python main.py`
+- Start the server for development `python3 main.py`
 - Navigate to `127.0.0.1:5000`
 
 # Selenium Tests

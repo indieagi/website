@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+    <h1>Events</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Event Name</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sat 9 Sep 2023</td>
+                <td>
+                    IndieAGI Social #1: <br>
+                    <a href="/events/jug-island-picnic">Jug Island Picnic</a>
+                </td>
+                <td>In-Person</td>
+            </tr>
+            <tr>
+                <td>Sat 2 Sep 2023</td>
+                <td>
+                    IndieAGI House #2: <br>
+                    <a href="/events/intro-to-full-stack-llm">Intro to Full Stack LLM Development</a>
+                </td>
+                <td>In-Person</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+{% endblock %}
