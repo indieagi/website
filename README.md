@@ -5,11 +5,24 @@ cd ~/src/indieagi
 git clone git@github.com:indieagi/website.git
 ```
 
+## [One Time] Create Venv
+This will create a Python virtual environment in the directory ``./iagi-venv`
+```
+python -m venv iagi-venv
+```
+
 ## Update Repo
 ```
 cd ~/src/indieagi/website
 git pull
 ```
+
+## Activate `iagi_venv` In Your Active Terminal Session
+This will make it so installed packages etc don't interfere with your local system, and so your local system's packages don't interfere with this dev environment. If you don't do this, unexpected things may break while you develop.
+```
+source iagi-venv/bin/activate
+```
+Your terminal prompt should change to say `(iagi-venv)`.
 
 ## Copy Branch Name
 Copy the branch name from the Linear Issue you are developing for by clicking the branch button or pressing `ctrl + shift + .` It should look something like this: `toby/agi-315-iagi-jug-island-meetup-invite`
