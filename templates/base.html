@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/events">Events</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
